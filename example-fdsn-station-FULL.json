@@ -9,7 +9,7 @@
         {
             "code": "IU",
             "startTime": "2000-01-01T11:30:22Z",
-            "endTime": "2599-12-31T23:59:59Z",
+            "endTime": null,
             "description": "Global Seismograph Network (GSN - IRIS/USGS)",
             "restrictedStatus": "open",
             "totalNumberStations": 92,
