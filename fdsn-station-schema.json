@@ -229,7 +229,7 @@
     },
     "definitions": {
         "fdsn-date-time": {
-            "type": "string",
+            "type": [ "string", "null" ],
             "format": "date-time",
             "description": "Date and time in one form of ISO 8601, specifically YYYY-MM-DDThh:mm:ss[.SSSSSS]"
         },
