@@ -1,0 +1,36 @@
+{
+    "schemaVersion": "1.0",
+    "created": "2014-11-19T17:50:38Z",
+    "module": "IRIS WEB SERVICE: fdsnws-station | version: 1.0.0-TEST",
+    "moduleURI": "http://service.iris.edu/fdsnws/station/1/query?net=IU&sta=ANMO&level=station&format=json",
+    "sender": "IRIS-DMC",
+    "source": "IRIS-DMC",
+    "networks": [
+        {
+            "code": "IU",
+            "startTime": "2000-01-01T11:30:22Z",
+            "endTime": "2599-12-31T23:59:59Z",
+            "description": "Global Seismograph Network (GSN - IRIS/USGS)",
+            "restrictedStatus": "open",
+            "totalNumberStations": 92,
+            "selectedNumberStations": 1,
+            "stations": [
+                {
+                    "code": "ANMO",
+                    "startTime": "2000-01-01T11:30:22Z",
+                    "endTime": "2003-01-01T11:30:22Z",
+                    "latitude": 34.9502,
+                    "longitude": -106.4602,
+                    "elevation": 1839.0,
+                    "site": {
+                        "name": "Albuquerque, New Mexico, USA",
+                        "description": "Near the edge of the base outside of Alburquerque"
+                    },
+                    "restrictedStatus": "open",
+                    "totalNumberChannels": 50,
+                    "selectedNumberChannels": 50
+                }
+            ]
+        }
+    ]
+}

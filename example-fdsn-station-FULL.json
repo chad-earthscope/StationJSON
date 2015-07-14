@@ -1,0 +1,134 @@
+{
+    "schemaVersion": "1.0",
+    "created": "2014-11-19T17:50:38Z",
+    "module": "IRIS WEB SERVICE: fdsnws-station | version: 1.0.0-TEST",
+    "moduleURI": "http://service.iris.edu/fdsnws/station/1/query?net=IU&sta=ANMO&loc=00,10&cha=BHZ&level=channel&format=json",
+    "sender": "IRIS-DMC",
+    "source": "IRIS-DMC",
+    "networks": [
+        {
+            "code": "IU",
+            "startTime": "2000-01-01T11:30:22Z",
+            "endTime": "2599-12-31T23:59:59Z",
+            "description": "Global Seismograph Network (GSN - IRIS/USGS)",
+            "restrictedStatus": "open",
+            "totalNumberStations": 92,
+            "selectedNumberStations": 1,
+            "dataAvailability": {
+                "extent": {
+                    "start": "2000-02-02T00:00:00Z",
+                    "end": "2015-02-02T00:00:00Z"
+                }
+            },
+            "stations": [
+                {
+                    "code": "ANMO",
+                    "startTime": "2000-01-01T11:30:22Z",
+                    "endTime": "2003-01-01T11:30:22Z",
+                    "latitude": 34.9502,
+                    "longitude": -106.4602,
+                    "elevation": 1839.0,
+                    "site": {
+                        "name": "Albuquerque, New Mexico, USA",
+                        "description": "Near the edge of the base outside of Alburquerque"
+                    },
+                    "restrictedStatus": "open",
+                    "totalNumberChannels": 50,
+                    "selectedNumberChannels": 2,
+                    "dataAvailability": {
+                        "extent": {
+                            "start": "2000-02-02T00:00:00Z",
+                            "end": "2015-02-02T00:00:00Z"
+                        }
+                    },
+                    "channels": [
+                        {
+                            "location": "00",
+                            "code": "BHZ",
+                            "startTime": "2000-03-01T11:30:22Z",
+                            "endTime": "2001-01-01T11:30:22Z",
+                            "latitude": 34.9502,
+                            "longitude": -106.4602,
+                            "elevation": 1839.0,
+                            "depth": 150,
+                            "azimuth": 0.0,
+                            "dip": -90.0,
+                            "sensorDescription": "Geotech KS-54000 Borehole Seismometer",
+                            "sampleRate": 20,
+                            "scale": 8.6473E8,
+                            "scaleUnits": "M/S",
+                            "scaleFrequency": 0.02,
+                            "restrictedStatus": "open",
+                            "dataAvailability": {
+                                "extent": {
+                                    "start": "2000-02-02T00:00:00.123456Z",
+                                    "end": "2015-02-02T00:00:00Z"
+                                },
+                                "span": [
+                                    {
+                                        "time": {
+                                            "start": "2012-02-02T00:00:00Z",
+                                            "end": "2012-02-02T01:00:00Z"
+                                        },
+                                        "numberSegments": 1,
+                                        "maximumTimeTear": 0
+                                    },
+                                    {
+                                        "time": {
+                                            "start": "2012-02-02T03:00:00Z",
+                                            "end": "2012-02-02T04:00:00Z"
+                                        },
+                                        "numberSegments": 12,
+                                        "maximumTimeTear": 14.67
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "location": "10",
+                            "code": "BHZ",
+                            "startTime": "2000-03-01T11:30:22Z",
+                            "endTime": "2001-01-01T11:30:22Z",
+                            "latitude": 34.9502,
+                            "longitude": -106.4602,
+                            "elevation": 1839.0,
+                            "depth": 150,
+                            "azimuth": 0.0,
+                            "dip": -90.0,
+                            "sensorDescription": "Geotech KS-54000 Borehole Seismometer",
+                            "sampleRate": 40,
+                            "scale": 8.4851E9,
+                            "scaleUnits": "M/S",
+                            "scaleFrequency": 0.02,
+                            "restrictedStatus": "open",
+                            "dataAvailability": {
+                                "extent": {
+                                    "start": "2000-02-02T00:00:00Z",
+                                    "end": "2015-02-02T00:00:00Z"
+                                },
+                                "span": [
+                                    {
+                                        "time": {
+                                            "start": "2012-02-02T00:00:00Z",
+                                            "end": "2012-02-02T01:00:00Z"
+                                        },
+                                        "numberSegments": 1,
+                                        "maximumTimeTear": 0
+                                    },
+                                    {
+                                        "time": {
+                                            "start": "2012-02-02T03:00:00Z",
+                                            "end": "2012-02-02T04:00:00Z"
+                                        },
+                                        "numberSegments": 12,
+                                        "maximumTimeTear": 14.67
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

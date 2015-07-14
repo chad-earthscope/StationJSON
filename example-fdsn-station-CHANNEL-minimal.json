@@ -1,0 +1,48 @@
+{
+    "schemaVersion": "1.0",
+    "networks": [
+        {
+            "code": "IU",
+            "startTime": "1988-01-01T00:00:00Z",
+            "endTime": null,
+            "description": "Global Seismograph Network (GSN - IRIS/USGS)",
+            "stations": [
+                {
+                    "code": "ANMO",
+                    "startTime": "2000-10-19T16:00:00Z",
+                    "endTime": "2002-11-19T21:07:00Z",
+                    "latitude": 34.9502,
+                    "longitude": -106.4602,
+                    "elevation": 1839.0,
+                    "site": {
+                        "name": "Albuquerque, New Mexico, USA"
+                    },
+                    "channels": [
+                        {
+                            "location": "00",
+                            "code": "BHZ",
+                            "startTime": "2000-10-19T16:00:00Z",
+                            "endTime": "2002-11-19T21:07:00Z",
+                            "latitude": 34.9502,
+                            "longitude": -106.4602,
+                            "elevation": 1839.0,
+                            "sampleRate": 20,
+                            "sensorDescription": "Geotech KS-54000 Borehole Seismometer"
+                        },
+                        {
+                            "location": "10",
+                            "code": "BHZ",
+                            "startTime": "2000-12-28T00:00:00Z",
+                            "endTime": "2001-06-26T15:52:00",
+                            "latitude": 34.9502,
+                            "longitude": -106.4602,
+                            "elevation": 1839.0,
+                            "sampleRate": 40,
+                            "sensorDescription": "Guralp CMG3-T Seismometer (borehole)"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
