@@ -8,6 +8,8 @@ The schema has been developed with the following priorities:
 1. To provide core seismic station metadata from multiple "levels" in a single, small container.  Content similar to the text data.  Unlike text output, the JSON will always include higher level information, e.g. station level includes network level details.
 2. To provide a flavor of seismic station metadata for applications that would prefer JSON.
 
+An important characteristic of this schema is to define a "minimum" level of detail, this provides a baseline of information that clients can always expect in minimal size.
+
 ## Next steps
 
 Following a period of feedback and integration of changes, the schema will be submitted to FDSN Working Group II for consideration to become an FDSN standard.  If approved, the format will be submitted to FDSN Working Group III for addition to the fdsnws-station service definition with well known 'format' identifier(s).
