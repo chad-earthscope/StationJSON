@@ -19,8 +19,6 @@ The schema language used JSON Schema draft 4: [http://json-schema.org/](http://j
 Online resources for draft 4 schema validation and instance documents include:
 
 [http://jsonschemalint.com/draft4/](http://jsonschemalint.com/draft4/)
-
 and
-
 [http://json-schema-validator.herokuapp.com/](http://json-schema-validator.herokuapp.com/)
 
