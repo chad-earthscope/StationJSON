@@ -16,10 +16,11 @@ Following a period of feedback and integration of changes, the schema will be su
 
 The schema language used JSON Schema draft 4: [http://json-schema.org/](http://json-schema.org/).
 
-Oneline resources for draft 4 schema validation and instance documents include:
+Online resources for draft 4 schema validation and instance documents include:
+
 [http://jsonschemalint.com/draft4/](http://jsonschemalint.com/draft4/)
+
 and
+
 [http://json-schema-validator.herokuapp.com/](http://json-schema-validator.herokuapp.com/)
-
-
 
