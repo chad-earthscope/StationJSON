@@ -29,203 +29,8 @@
         },
         "networks": {
             "type": "array",
-            "items": {
-                "type": "object",
-                "required": [ "code", "startTime", "endTime", "description" ],
-                "additionalProperties": false,
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "FDSN SEED network code"
-                    },
-                    "startTime": {
-                        "$ref": "#/definitions/fdsn-date-time"
-                    },
-                    "endTime": {
-                        "$ref": "#/definitions/fdsn-date-time"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Description of network operator"
-                    },
-                    "restrictedStatus": {
-                        "$ref": "#/definitions/fdsn-restrictedStatus"
-                    },
-                    "totalNumberStations": {
-                        "type": "integer",
-                        "description": "Total number of stations at sending data center"
-                    },
-                    "selectedNumberStations": {
-                        "type": "integer",
-                        "description": "Selected number of stations"
-                    },
-                    "dataAvailability": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                            "extent": {
-                                "$ref": "#/definitions/fdsn-timeSpan",
-                                "description": "Earliest and latest data time"
-                            }
-                        },
-                        "description": "Description of network data availablity"
-                    },
-                    "stations": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "required": [ "code", "startTime", "latitude", "longitude", "elevation", "site" ],
-                            "additionalProperties": false,
-                            "properties": {
-                                "code": {
-                                    "type": "string",
-                                    "description": "FDSN SEED station code"
-                                },
-                                "startTime": {
-                                    "$ref": "#/definitions/fdsn-date-time"
-                                },
-                                "endTime": {
-                                    "$ref": "#/definitions/fdsn-date-time"
-                                },
-                                "latitude": {
-                                    "$ref": "#/definitions/fdsn-latitude"
-                                },
-                                "longitude": {
-                                    "$ref": "#/definitions/fdsn-longitude"
-                                },
-                                "elevation": {
-                                    "$ref": "#/definitions/fdsn-elevation"
-                                },
-                                "site": {
-                                    "type": "object",
-                                    "required": [ "name" ],
-                                    "additionalProperties": false,
-                                    "properties": {
-                                        "name": {
-                                            "type": "string",
-                                            "description": "Short site location description"
-                                        },
-                                        "description": {
-                                            "type": "string",
-                                            "description": "Longer description of the site location"
-                                        }
-                                    }
-                                },
-                                "restrictedStatus": {
-                                    "$ref": "#/definitions/fdsn-restrictedStatus"
-                                },
-                                "totalNumberChannels": {
-                                    "type": "integer",
-                                    "description": "Total number of channels at sending data center"
-                                },
-                                "selectedNumberChannels": {
-                                    "type": "integer",
-                                    "description": "Selected number of channels"
-                                },
-                                "dataAvailability": {
-                                    "type": "object",
-                                    "additionalProperties": false,
-                                    "properties": {
-                                        "extent": {
-                                            "$ref": "#/definitions/fdsn-timeSpan",
-                                            "description": "Earliest and latest data time"
-                                        }
-                                    },
-                                    "description": "Description of station data availablity"
-                                },
-                                "channels": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "required": [ "location", "code", "startTime", "endTime", "latitude", "longitude", "elevation", "sampleRate", "sensorDescription" ],
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "location": {
-                                                "type": "string",
-                                                "description": "FDSN SEED location identifer"
-                                            },
-                                            "code": {
-                                                "type": "string",
-                                                "description": "FDSN SEED channel codes"
-                                            },
-                                            "startTime": {
-                                                "$ref": "#/definitions/fdsn-date-time"
-                                            },
-                                            "endTime": {
-                                                "$ref": "#/definitions/fdsn-date-time"
-                                            },
-                                            "latitude": {
-                                                "$ref": "#/definitions/fdsn-latitude"
-                                            },
-                                            "longitude": {
-                                                "$ref": "#/definitions/fdsn-longitude"
-                                            },
-                                            "elevation": {
-                                                "$ref": "#/definitions/fdsn-elevation"
-                                            },
-                                            "depth": {
-                                                "type": "number",
-                                                "description": "Local depth or overburden (meters)"
-                                            },
-                                            "azimuth": {
-                                                "type": "number",
-                                                "minimum": 0,
-                                                "maximum": 360,
-                                                "description": "Channel azimuth (degrees from north, clockwise)"
-                                            },
-                                            "dip": {
-                                                "type": "number",
-                                                "minimum": -90,
-                                                "maximum": 90,
-                                                "description": "Channel dip (degrees down from horizontal)"
-                                            },
-                                            "sensorDescription": {
-                                                "type": "string",
-                                                "description": "Short description of instrument"
-                                            },
-                                            "sampleRate": {
-                                                "type": "number",
-                                                "description": "Channel sample rate (Hertz)"
-                                            },
-                                            "scale": {
-                                                "type": "number",
-                                                "description": "A divisor for converting to Earth units"
-                                            },
-                                            "scaleUnits": {
-                                                "type": "string",
-                                                "description": "Resulting units when dividing by scale"
-                                            },
-                                            "scaleFrequency": {
-                                                "type": "number",
-                                                "description": "Frequency in Hertz at which scale is valid"
-                                            },
-                                            "restrictedStatus": {
-                                                "$ref": "#/definitions/fdsn-restrictedStatus"
-                                            },
-                                            "dataAvailability": {
-                                                "type": "object",
-                                                "additionalProperties": false,
-                                                "properties": {
-                                                    "extent": {
-                                                        "$ref": "#/definitions/fdsn-timeSpan",
-                                                        "description": "Earliest and latest data time"
-                                                    },
-                                                    "span": {
-                                                        "$ref": "#/definitions/fdsn-dataSpan",
-                                                        "description": "Earliest and latest data time"
-                                                    }
-                                                },
-                                                "description": "Description of channel data availablity"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+            "items": { "$ref": "#/definitions/network" }
+        } 
     },
     "definitions": {
         "fdsn-date-time": {
@@ -285,6 +90,222 @@
                     }
                 }
             }
+        },
+        "networkAttr": {
+            "type": "object",
+            "required": [ "code", "startTime", "endTime", "description" ],
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "FDSN SEED network code"
+                },
+                "startTime": {
+                    "$ref": "#/definitions/fdsn-date-time"
+                },
+                "endTime": {
+                    "$ref": "#/definitions/fdsn-date-time"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of network operator"
+                },
+                "restrictedStatus": {
+                    "$ref": "#/definitions/fdsn-restrictedStatus"
+                },
+                "totalNumberStations": {
+                    "type": "integer",
+                    "description": "Total number of stations at sending data center"
+                },
+                "selectedNumberStations": {
+                    "type": "integer",
+                    "description": "Selected number of stations"
+                },
+                "dataAvailability": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "extent": {
+                            "$ref": "#/definitions/fdsn-timeSpan",
+                            "description": "Earliest and latest data time"
+                        }
+                    },
+                    "description": "Description of network data availablity"
+                }
+            }
+        },
+        "network": {
+            "allOf": [
+                { "$ref": "#/definitions/networkAttr" },
+                { 
+                  "properties": {
+                    "stations": {
+                        "type": "array",
+                        "items": { "$ref": "#/definitions/stationAttr" }
+                        
+                     }
+                   }
+                 }
+             ]   
+        },
+        "stationAttr": {
+            "type": "object",
+            "required": [ "code", "startTime", "latitude", "longitude", "elevation", "site" ],
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "FDSN SEED station code"
+                },
+                "startTime": {
+                    "$ref": "#/definitions/fdsn-date-time"
+                },
+                "endTime": {
+                    "$ref": "#/definitions/fdsn-date-time"
+                },
+                "latitude": {
+                    "$ref": "#/definitions/fdsn-latitude"
+                },
+                "longitude": {
+                    "$ref": "#/definitions/fdsn-longitude"
+                },
+                "elevation": {
+                    "$ref": "#/definitions/fdsn-elevation"
+                },
+                "site": {
+                    "type": "object",
+                    "required": [ "name" ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "Short site location description"
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Longer description of the site location"
+                        }
+                    }
+                },
+                "restrictedStatus": {
+                    "$ref": "#/definitions/fdsn-restrictedStatus"
+                },
+                "totalNumberChannels": {
+                    "type": "integer",
+                    "description": "Total number of channels at sending data center"
+                },
+                "selectedNumberChannels": {
+                    "type": "integer",
+                    "description": "Selected number of channels"
+                },
+                "dataAvailability": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "extent": {
+                            "$ref": "#/definitions/fdsn-timeSpan",
+                            "description": "Earliest and latest data time"
+                        }
+                    },
+                    "description": "Description of station data availablity"
+                }
+            }
+        },
+        "station": {
+            "allOf": [
+                { "$ref": "#/definitions/stationAttr" },
+                { 
+                  "properties": {
+                    "channels": {
+                        "type": "array",
+                        "items": { "$ref": "#/definitions/channelAttr" }
+                     }
+                   }
+                 }
+             ],   
+             "additionalProperties": false
+        },
+        "channelAttr": {
+            "type": "object",
+            "required": [ "location", "code", "startTime", "endTime", "latitude", "longitude", "elevation", "sampleRate", "sensorDescription" ],
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "description": "FDSN SEED location identifer"
+                },
+                "code": {
+                    "type": "string",
+                    "description": "FDSN SEED channel codes"
+                },
+                "startTime": {
+                    "$ref": "#/definitions/fdsn-date-time"
+                },
+                "endTime": {
+                    "$ref": "#/definitions/fdsn-date-time"
+                },
+                "latitude": {
+                    "$ref": "#/definitions/fdsn-latitude"
+                },
+                "longitude": {
+                    "$ref": "#/definitions/fdsn-longitude"
+                },
+                "elevation": {
+                    "$ref": "#/definitions/fdsn-elevation"
+                },
+                "depth": {
+                    "type": "number",
+                    "description": "Local depth or overburden (meters)"
+                },
+                "azimuth": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 360,
+                    "description": "Channel azimuth (degrees from north, clockwise)"
+                },
+                "dip": {
+                    "type": "number",
+                    "minimum": -90,
+                    "maximum": 90,
+                    "description": "Channel dip (degrees down from horizontal)"
+                },
+                "sensorDescription": {
+                    "type": "string",
+                    "description": "Short description of instrument"
+                },
+                "sampleRate": {
+                    "type": "number",
+                    "description": "Channel sample rate (Hertz)"
+                },
+                "scale": {
+                    "type": "number",
+                    "description": "A divisor for converting to Earth units"
+                },
+                "scaleUnits": {
+                    "type": "string",
+                    "description": "Resulting units when dividing by scale"
+                },
+                "scaleFrequency": {
+                    "type": "number",
+                    "description": "Frequency in Hertz at which scale is valid"
+                },
+                "restrictedStatus": {
+                    "$ref": "#/definitions/fdsn-restrictedStatus"
+                },
+                "dataAvailability": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "extent": {
+                            "$ref": "#/definitions/fdsn-timeSpan",
+                            "description": "Earliest and latest data time"
+                        },
+                        "span": {
+                            "$ref": "#/definitions/fdsn-dataSpan",
+                            "description": "Earliest and latest data time"
+                        }
+                    },
+                    "description": "Description of channel data availablity"
+                }
+            }
         }
+
     }
 }
