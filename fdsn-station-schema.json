@@ -42,7 +42,10 @@
                         "$ref": "#/definitions/fdsn-date-time"
                     },
                     "endTime": {
-                        "$ref": "#/definitions/fdsn-date-time"
+                        "anyOf": [
+                            { "type": "null" },
+                            { "$ref": "#/definitions/fdsn-date-time" }
+                        ]
                     },
                     "description": {
                         "type": "string",
@@ -85,7 +88,10 @@
                                     "$ref": "#/definitions/fdsn-date-time"
                                 },
                                 "endTime": {
-                                    "$ref": "#/definitions/fdsn-date-time"
+                                    "anyOf": [
+                                        { "type": "null" },
+                                        { "$ref": "#/definitions/fdsn-date-time" }
+                                    ]
                                 },
                                 "latitude": {
                                     "$ref": "#/definitions/fdsn-latitude"
@@ -152,7 +158,10 @@
                                                 "$ref": "#/definitions/fdsn-date-time"
                                             },
                                             "endTime": {
-                                                "$ref": "#/definitions/fdsn-date-time"
+                                                "anyOf": [
+                                                    { "type": "null" },
+                                                    { "$ref": "#/definitions/fdsn-date-time" }
+                                                ]
                                             },
                                             "latitude": {
                                                 "$ref": "#/definitions/fdsn-latitude"
@@ -229,9 +238,9 @@
     },
     "definitions": {
         "fdsn-date-time": {
-            "type": [ "string", "null" ],
+            "type": "string",
             "format": "date-time",
-            "description": "Date and time in one form of ISO 8601, specifically YYYY-MM-DDThh:mm:ss[.SSSSSS]"
+            "description": "Date and time in one form of ISO 8601, specifically YYYY-MM-DDThh:mm:ss[.SSSSSS]Z"
         },
         "fdsn-latitude": {
             "type": "number",
