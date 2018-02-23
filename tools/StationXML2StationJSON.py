@@ -45,7 +45,6 @@ class StationXML2StationJSON():
     Finds element in tree and sets type
     """
 
-    print element, tag
     if element is None:
       return None
   
