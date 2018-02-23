@@ -45,14 +45,15 @@ class StationXML2StationJSON():
     Finds element in tree and sets type
     """
 
+    print element, tag
     if element is None:
       return None
   
     # Tag is a list: recursion
     if isinstance(tag, list):
-      tag = tag[0]
       if len(tag) > 1:
-        return self.findElementText(element.find(self.NAMESPACE + tag), tag[1:], fn)
+        return self.findElementText(element.find(self.NAMESPACE + tag[0]), tag[1:], fn)
+      tag = tag[0]
   
     el = element.find(self.NAMESPACE + tag)
   
