@@ -91,6 +91,208 @@
                 }
             }
         },
+        "fdsn-responseStage": {
+            "type": "object",
+            "properties": {
+                "poleszeros": {
+                    "$ref": "#/definitions/fdsn-poleszeros"
+                },
+                "coefficients": {
+                    "$ref": "#/definitions/fdsn-coefficients"
+                },
+                "responseList": {
+                    "$ref": "#/definitions/fdsn-responseList"
+                },
+                "fir": {
+                    "$ref": "#/definitions/fdsn-fir"
+                },
+                "decimation": {
+                    "$ref": "#/definitions/fdsn-poleszeros"
+                },
+                "stageGain": {
+                    "$ref": "#/definitions/fdsn-poleszeros"
+                },
+                "polynomial": {
+                    "$ref": "#/definitions/fdsn-polynomial"
+                }
+            },
+            "oneOf": [
+                { "required": ["poleszeros", "stageGain"] },
+                { "required": ["coefficients", "stageGain"] },
+                { "required": ["responseList", "stageGain"] },
+                { "required": ["fir", "stageGain"] },
+                { "required": ["poleszeros", "decimation", "stageGain"] },
+                { "required": ["coefficients", "decimation", "stageGain"] },
+                { "required": ["responseList", "decimation", "stageGain"] },
+                { "required": ["fir", "decimation", "stageGain"] },
+                { "required": ["polynomial"] }
+            ],
+            "additionalProperties": false
+        },
+        "fdsn-baseFilter": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string"},
+                "description": { "type": "string"},
+                "inputUnits": { "$ref": "#/definitions/fdsn-units" },
+                "outputUnits": { "$ref": "#/definitions/fdsn-units" }
+            }
+        },
+        "fdsn-units": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": { "type": "string"},
+                "description": { "type": "string"}
+            }
+        },
+        "fdsn-poleszeros": {
+            "type": "object",
+            "additionalProperties": false,
+                "allOf": [
+                    { "$ref": "#/definitions/fdsn-baseFilter" },
+                    { "properties": {
+                            "pzTransferFunctionType": {
+                                "type": "string",
+                                "enum": [ "LAPLACE (RADIANS/SECOND)", "LAPLACE (HERTZ)", "DIGITAL (Z-TRANSFORM)" ]
+                            },
+                            "normalizationFactor": {
+                                "type": "number"
+                            },
+                            "normalizationFrequency": {
+                                "type": "number"
+                            },
+                            "zero": {
+                                "type": "array",
+                                "items": {
+                                    "type": { "$ref": "#/definitions/fdsn-floatNoUnit" }
+                                }
+                            },
+                            "pole": {
+                                "type": "array",
+                                "items": {
+                                    "type": { "$ref": "#/definitions/fdsn-floatNoUnit" }
+                                }
+                            }
+                        }
+                    }
+                ]
+        },
+        "fdsn-fir": {
+            "type": "object",
+            "additionalProperties": false,
+                "allOf": [
+                    { "$ref": "#/definitions/fdsn-baseFilter" },
+                    { "properties": {
+                            "symmetry": {
+                                "type": "string",
+                                "enum": [ "NONE", "EVEN", "ODD" ]
+                            },
+                            "numeratorCoefficient": {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/fdsn-floatNoUnit" }
+                            }
+                        }
+                    }
+                ]
+        },
+        "fdsn-coefficients": {
+            "type": "object",
+            "additionalProperties": false,
+                "allOf": [
+                    { "$ref": "#/definitions/fdsn-baseFilter" },
+                    { "properties": {
+                            "cfTransferFunctionType": {
+                                "type": "string",
+                                "enum": [ "ANALOG (RADIANS/SECOND)", "ANALOG (HERTZ)", "DIGITAL" ]
+                            },
+                            "numeratorCoefficient": {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/fdsn-floatNoUnit" }
+                            },
+                            "denominatorCoefficient": {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/fdsn-floatNoUnit" }
+                            }
+                        }
+                    }
+                ]
+        },
+        "fdsn-responseList": {
+            "type": "object",
+            "additionalProperties": false,
+                "allOf": [
+                    { "$ref": "#/definitions/fdsn-baseFilter" },
+                    { "properties": {
+                            "responseListElement": {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/fdsn-responseListElement" }
+                            }
+
+                        }
+                    }
+                ]
+        },
+        "fdsn-decimation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "inputSampleRate": {"type": "number"},
+                "factor": {"type": "number"},
+                "offset": {"type": "number"},
+                "delay": {"type": "number"},
+                "correction": {"type": "number"}
+            }
+        },
+        "fdsn-stageGain": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "value": {"type": "number"},
+                "frequency": {"type": "number"}
+            }
+        },
+        "fdsn-polynomial": {
+            "type": "object",
+            "additionalProperties": false,
+                "allOf": [
+                    { "$ref": "#/definitions/fdsn-baseFilter" },
+                    { "properties": {
+                            "approximationType": {
+                                "type": "string",
+                                "enum": [ "MACLAURIN" ]
+                            },
+                            "frequencyLowerBound": {"type": "number"},
+                            "frequencyUpperBound": {"type": "number"},
+                            "approximationLowerBound": {"type": "number"},
+                            "approximationUpperBound": {"type": "number"},
+                            "maximumError": {"type": "number"},
+                            "coefficient": {
+                                "type": "array",
+                                "items": { "$ref": "#/definitions/fdsn-floatNoUnit" }
+                            }
+                        }
+                    }
+                ]
+        },
+        "fdsn-floatNoUnit": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "value": {"type": "number"},
+                "plusError": {"type": "number"},
+                "minusError": {"type": "number"}
+            }
+        },
+        "fdsn-responseListElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+               "frequency": {"type": "number"},
+               "amplitude": {"type": "number"},
+               "phase": {"type": "number"}
+            }
+        },
         "networkAttr": {
             "type": "object",
             "required": [ "code", "startTime", "endTime", "description" ],
