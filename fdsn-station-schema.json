@@ -33,6 +33,14 @@
         }
     },
     "definitions": {
+        "fdsn-complex": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "type": "number" 
+            }
+        },
         "fdsn-date-time": {
             "type": "string",
             "format": "date-time",
@@ -90,6 +98,10 @@
                     }
                 }
             }
+        },
+        "fdsn-responseStages": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/fdsn-responseStage" }
         },
         "fdsn-responseStage": {
             "type": "object",
@@ -162,17 +174,13 @@
                             "normalizationFrequency": {
                                 "type": "number"
                             },
-                            "zero": {
+                            "zeros": {
                                 "type": "array",
-                                "items": {
-                                    "type": { "$ref": "#/definitions/fdsn-floatNoUnit" }
-                                }
+                                "items": { "$ref": "#/definitions/fdsn-complex" }
                             },
-                            "pole": {
+                            "poles": {
                                 "type": "array",
-                                "items": {
-                                    "type": { "$ref": "#/definitions/fdsn-floatNoUnit" }
-                                }
+                                "items": { "$ref": "#/definitions/fdsn-complex" }
                             }
                         }
                     }
@@ -238,7 +246,7 @@
             "additionalProperties": false,
             "properties": {
                 "inputSampleRate": {"type": "number"},
-                "factor": {"type": "number"},
+                "factor": {"type": "integer"},
                 "offset": {"type": "number"},
                 "delay": {"type": "number"},
                 "correction": {"type": "number"}
@@ -387,6 +395,10 @@
                             "type": "string",
                             "description": "Short site location description"
                         },
+                        "country": {
+                            "type": "string",
+                            "description": "Country of site location"
+                        },
                         "description": {
                             "type": "string",
                             "description": "Longer description of the site location"
@@ -495,6 +507,9 @@
                 "scaleFrequency": {
                     "type": "number",
                     "description": "Frequency in Hertz at which scale is valid"
+                },
+                "responseStages": {
+                    "$ref": "#/definitions/fdsn-responseStages"
                 },
                 "restrictedStatus": {
                     "$ref": "#/definitions/fdsn-restrictedStatus"

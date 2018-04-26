@@ -14,7 +14,7 @@ class StationXML2StationJSON():
   """
 
   NAMESPACE = "{http://www.fdsn.org/xml/station/1}"
-  MODULE = None
+  MODULE = "StationXML2StationJSON"
   SCHEMA_VERSION = "1.0"
 
   def __init__(self):
@@ -89,7 +89,7 @@ class StationXML2StationJSON():
       "type": "paz",
       "inputUnits": self.findElementText(stage, ["InputUnits", "Name"]),
       "outputUnits": self.findElementText(stage, ["OutputUnits", "Name"]),
-      "transferFunctionType": self.findElementText(stage, "PzTransferFunctionType"),
+      "pzTransferFunctionType": self.findElementText(stage, "PzTransferFunctionType"),
       "normalizationFactor": self.findElementText(stage, "NormalizationFactor", float),
       "normalizationFrequency": self.findElementText(stage, "NormalizationFrequency", float),
       "zeros": map(self.extractComplex, stage.findall(self.NAMESPACE + "Zero")),
@@ -103,7 +103,11 @@ class StationXML2StationJSON():
     Returns float representation of an element
     """
 
-    return float(x.text)
+    return {
+      "value": float(x.text),
+      "plusError": 0,
+      "minError": 0
+    }
     
   
   def extractDecimation(self, decimation):
@@ -205,7 +209,7 @@ class StationXML2StationJSON():
     """
 
     stageDict = {
-      "gain": self.findElementText(stage, ["StageGain", "Value"], float),
+      "stageGain": self.findElementText(stage, ["StageGain", "Value"], float),
       "gainFrequency": self.findElementText(stage, ["StageGain", "Frequency"], float)
     }
   
